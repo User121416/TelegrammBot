@@ -6,7 +6,9 @@ import urllib.request
 
 from telebot import types
 win = random.randint(1, 11)
-bot = telebot.TeleBot(config.TOKEN)@bot.message_handler(commands=['start'])
+bot = telebot.TeleBot(config.TOKEN)\
+
+@bot.message_handler(commands=['start'])
 def welcome(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     item1 = types.KeyboardButton('Посмотреть активность сайта')
@@ -17,7 +19,7 @@ def welcome(message):
 @bot.message_handler(content_types=['text'])
 def sm(message):
     if message.chat.type == 'private':
-        if message.text == 'Посмотреть активность сервера':
+        if message.text == 'Посмотреть активность сайта':
             bot.send_message(message.chat.id, urllib.request.urlopen("http://www.www.youtube.com").getcode())
 
         elif message.text == 'Выключить бота':
