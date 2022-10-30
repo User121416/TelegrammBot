@@ -6,8 +6,7 @@ import urllib.request
 
 from telebot import types
 win = random.randint(1, 11)
-bot = telebot.TeleBot(config.TOKEN)
-@bot.message_handler(commands=['start'])
+bot = telebot.TeleBot(config.TOKEN)@bot.message_handler(commands=['start'])
 def welcome(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     item1 = types.KeyboardButton('Посмотреть активность сайта')
